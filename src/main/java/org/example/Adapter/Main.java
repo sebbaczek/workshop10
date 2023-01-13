@@ -5,11 +5,19 @@ Jeżeli napotkamy w praktyce sytuację, gdy będziemy mieli 2 interfejsy, które
         związane ze sobą (czyli np. będziemy potrzebowali wykorzystać 2 różne biblioteki, ewentualnie 2
         moduły z naszego kodu) i będziemy chcieli te interfejsy zachęcić do wspólnej pracy to możemy
         wykorzystać ten wzorzec.
+        
+        w implementacji adaptera wykorzystujemy jako pole Interfejs napisany do pierwotnej klasy
 */
 
 
 public class Main {
         public static void main(String[] args) {
-                System.out.println("Hello world!");
+        
+                Dimension dimension = new SonyTV();
+                DimensionAdapter dimensionAdapter = new DimensionAdapterImpl(dimension);
+                
+                System.out.println("original: " + dimension.getDimension());
+                System.out.println("adapted: " + dimensionAdapter.getDimension());
+        
         }
 }
